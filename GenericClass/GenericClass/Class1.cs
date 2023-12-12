@@ -8,13 +8,13 @@ public class GenericClassAssignment<T> where T: ValueTypeClass
         privateCollection.Add(item);
     }
 
-    public T getItemfrom(T item)
+    public T getItemfrom(int index)
     {
-        return privateCollection.FirstOrDefault(x => x == item);
+        return privateCollection.ElementAt(index);
     }
-     public void reverseCollection()
+     public ICollection<T> reverseCollection()
     {
-         privateCollection.OrderByDescending(i => i);
+         return privateCollection.OrderByDescending(i => i).ToArray();
     }
 
 }
